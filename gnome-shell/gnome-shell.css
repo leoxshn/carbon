@@ -1,0 +1,40 @@
+
+/* Statusbar */
+
+#panel {
+  background: #000000;
+  font-size: 14px;
+  height: 32px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+}
+
+/* adds rounded corners below the status bar */
+#panel .panel-corner {
+  -panel-corner-radius: 10px;
+  -panel-corner-background-color: #000000;
+}
+
+#panel .panel-button {
+    color: #E1E2E3;
+    border-radius: 20px;
+}
+
+#panel .panel-button:hover,
+#panel .panel-button:active,
+#panel .panel-button:overview,
+#panel .panel-button:focus,
+#panel .panel-button:checked {
+    background: rgba( 255, 255, 255, 0.1);
+}
+
+
+/* OSD (volume adjustment window) */
+
+.osd-window {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: rgba(50, 50, 50, 0.8);
+    border-radius: 20px;
+    padding: 15px 15px 15px 15px;
+}
+
+

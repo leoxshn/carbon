@@ -1,0 +1,220 @@
+
+@define-color accent #17C25B;
+@define-color base_bg #252627;
+@define-color base_fg #E1E2E3;
+@define-color border rgba(0, 0, 0, .8);
+
+* {
+  -GtkScrollbar-has-backward-stepper: false;
+  -GtkScrollbar-has-forward-stepper: false;
+}
+
+
+
+/* Window background */
+
+.background {
+    background: @base_bg;
+    color: @base_fg;
+    border-radius: 0 0 10px 10px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
+    border-top-style: none;
+}
+
+
+
+/* Window shadow */
+
+decoration {
+    background: @border;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px @border,
+                0 1px 3px rgba(0, 0, 0, .1),
+                0 5px 14px rgba(0, 0, 0, .25),
+                0 16px 20px rgba(0, 0, 0, .25);
+    margin: 12px;
+}
+
+
+
+/* Window titlebar */
+
+.titlebar {
+    min-height: 32px;
+    padding: 6px;
+    background: linear-gradient(to top, shade(@base_bg, 0.9), @base_bg);
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: inset 0 1px rgba(255, 255, 255, .1),
+                inset 0 0 0 1px rgba(255, 255, 255, .04);
+    border-bottom: 1px solid @border;
+}
+
+.titlebar button {
+    box-shadow: none;
+    background: transparent;
+    padding-right: 8px;
+    padding-left: 8px;
+    color: #A1A2A3;
+}
+
+.titlebar button:hover {
+    box-shadow: none;
+    background: transparent;
+    color: #C0C1C2;
+}
+
+.titlebar button:checked {
+    box-shadow: none;
+    background: transparent;
+    color: @accent;
+}
+
+.titlebar button:disabled {
+    box-shadow: none;
+    background: transparent;
+    color: #111213;
+}
+
+
+
+/* Buttons */
+
+button {
+    border-radius: 6px;
+    padding: 8px 12px 8px 12px;
+    background: linear-gradient(to top, shade(@base_bg, 0.9), @base_bg);
+    box-shadow: inset 0 1px 0 1px rgba(255, 255, 255, .1),
+                inset 0 0 0 2px rgba(255, 255, 255, .04),
+                inset 0 0 0 1px @border;
+}
+
+button:hover {
+    color: #ffffff;
+    background: linear-gradient(to top, shade(@base_bg, 1.1), shade(@base_bg, 1.3));
+    box-shadow: inset 0 1px 0 1px rgba(255, 255, 255, .16),
+                inset 0 0 0 2px rgba(255, 255, 255, .08),
+                inset 0 0 0 1px rgba(0, 0, 0, .85);
+}
+
+button:active,
+.titlebar button:active {
+    color: #C0C1C2;
+    background: rgba(0, 0, 0, .1);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, .4),
+                inset 0 1px 0 1px rgba(0, 0, 0, .2),
+                inset 0 0 0 2px rgba(0, 0, 0, .02),
+                inset 0 0 0 1px @border;
+}
+
+
+
+/* Combobox (aka spinner) */
+
+combobox arrow {
+    min-width: 18px;
+    min-height: 18px;
+    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+
+
+
+/* Scrollbar */
+
+scrollbar slider {
+    min-width: 6px;
+    min-height: 6px;
+    border-radius: 8px;
+    background-color: rgba(200, 200, 200, .2);
+    margin: 4px;
+}
+
+scrollbar slider:hover {
+    background-color: rgba(220, 220, 220, .4);
+}
+
+scrollbar slider:active {
+    background-color: rgba(220, 220, 220, .5);
+}
+
+scrollbar slider:disabled {
+    background-color: transparent;
+}
+
+scrollbar.horizontal slider {
+    min-width: 40px;
+}
+
+scrollbar.vertical slider {
+    min-height: 40px;
+}
+
+
+
+/* Borders (& separators) */
+
+menu separator,
+separator.horizontal {
+    border-top: 1px solid @border;
+}
+
+separator.vertical,
+paned.horizontal > separator {
+    border-right: 1px solid @border;
+}
+
+frame:not(.flat) {
+    border: 1px solid @border;
+}
+
+
+
+/* Notebook & tabs */
+
+notebook header {
+    background: shade(@tab_base_color, .85);
+    border-bottom: 1px solid @border;
+}
+
+notebook tab {
+    border-left: 1px solid @border;
+    border-right: 1px solid @border;
+    margin-right: -1px;
+    border-color: @border;
+    color: rgba(255, 255, 255, .5);
+}
+
+tab:checked {
+    background: @tab_base_color;
+}
+
+.frame notebook tab {
+    padding: 8px 12px 8px 12px;
+    border: none;
+}
+
+notebook tab button {
+    background: none;
+    box-shadow: none;
+    padding: 4px;
+}
+
+notebook header button {
+    background: none;
+    box-shadow: none;
+    padding: 4px;
+    margin: 4px;
+}
+
+notebook tab button:hover:not(:active),
+notebook header button:hover:not(:active) {
+    background: unset;
+    box-shadow: unset;
+}
+
+
+
+/*  */
+
+
+
+
