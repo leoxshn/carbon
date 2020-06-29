@@ -212,6 +212,10 @@ notebook tab {
     color: rgba(255, 255, 255, .5);
 }
 
+notebook tab:hover {
+    background: shade(@base_bg, .9);
+}
+
 notebook tab:checked {
     background: @base_bg;
 }
@@ -221,7 +225,7 @@ notebook tab:checked {
     border: none;
 }
 
-notebook tab button {
+notebook tab button.flat {
     background: none;
     box-shadow: none;
     padding: 4px;
@@ -233,7 +237,7 @@ notebook tab:not(:checked):not(:hover) button {
     transition: color .2s;
 }
 
-notebook header button {
+notebook header button.flat {
     background: none;
     box-shadow: none;
     padding: 4px;
@@ -245,8 +249,3 @@ notebook header button:hover:not(:active) {
     background: unset;
     box-shadow: unset;
 }
-
-
-
-
-
