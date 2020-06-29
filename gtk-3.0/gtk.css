@@ -1,5 +1,6 @@
 
-@define-color accent #17C25B;
+@define-color accent #1155ff;
+@define-color secondary_accent #17C25B;
 @define-color base_bg #252627;
 @define-color base_fg #E1E2E3;
 @define-color border rgba(0, 0, 0, .8);
@@ -7,6 +8,11 @@
 * {
   -GtkScrollbar-has-backward-stepper: false;
   -GtkScrollbar-has-forward-stepper: false;
+}
+
+*:selected {
+    background-color: shade(@accent, .8);
+    border: 1px solid rgba(255, 255, 255, .04);
 }
 
 
@@ -38,6 +44,7 @@ decoration {
                 0 5px 14px rgba(0, 0, 0, .25),
                 0 16px 20px rgba(0, 0, 0, .25);
     margin: 12px;
+    transition: box-shadow .4s;
 }
 
 decoration:backdrop {
@@ -45,11 +52,10 @@ decoration:backdrop {
                 0 1px 3px rgba(0, 0, 0, .4),
                 0 5px 14px rgba(0, 0, 0, .16),
                 0 16px 20px rgba(0, 0, 0, .04);
+    transition: box-shadow .4s;
 }
 
-.tiled decoration {
-    border-radius: 0;
-}
+.tiled decoration { border-radius: 0; }
 
 
 
@@ -87,14 +93,14 @@ decoration:backdrop {
 .titlebar button:checked {
     box-shadow: none;
     background: transparent;
-    color: @accent;
+    color: @secondary_accent;
     transition: background .15s, color .1s, box-shadow .1s;
 }
 
 .titlebar button:disabled {
     box-shadow: none;
     background: transparent;
-    color: #111213;
+    color: #353637;
     transition: background .15s, color .1s, box-shadow .1s;
 }
 
@@ -110,6 +116,7 @@ button {
                 inset 0 0 0 2px rgba(255, 255, 255, .04),
                 inset 0 0 0 1px @border;
     transition: background .15s, color .1s, box-shadow .1s;
+    color: rgba(255, 255, 255, .9);
 }
 
 button:hover {
@@ -122,14 +129,49 @@ button:hover {
 }
 
 button:active,
+button.flat:active,
 .titlebar button:active {
-    color: #C0C1C2;
+    color: rgba(255, 255, 255, .7);
     background: rgba(0, 0, 0, .1);
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, .4),
                 inset 0 1px 0 1px rgba(0, 0, 0, .2),
                 inset 0 0 0 2px rgba(0, 0, 0, .02),
                 inset 0 0 0 1px @border;
     transition: background .15s, color .1s, box-shadow .1s;
+}
+
+button.suggested-action {
+    background: linear-gradient(to top, shade(@accent, 1), shade(@accent, 1.2));
+    box-shadow: inset 0 1px 0 1px rgba(255, 255, 255, .18),
+                inset 0 0 0 2px rgba(255, 255, 255, .12),
+                inset 0 0 0 1px @border;
+}
+
+button.suggested-action:hover {
+    background: linear-gradient(to top, shade(@accent, 1.1), shade(@accent, 1.3));
+    box-shadow: inset 0 1px 0 1px rgba(255, 255, 255, .18),
+                inset 0 0 0 2px rgba(255, 255, 255, .12),
+                inset 0 0 0 1px @border;
+}
+
+button.suggested-action:active {
+    background: shade(@accent, 0.8);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, .4),
+                inset 0 1px 0 1px rgba(0, 0, 0, .2),
+                inset 0 0 0 2px rgba(0, 0, 0, .02),
+                inset 0 0 0 1px @border;
+}
+
+button.flat {
+    background: none;
+    box-shadow: none;
+    padding: 4px;
+    transition: color .2s;
+}
+
+button.flat:hover:not(:active) {
+    background: unset;
+    box-shadow: unset;
 }
 
 
@@ -140,6 +182,39 @@ combobox arrow {
     min-width: 18px;
     min-height: 18px;
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+
+
+
+/* Text entry *****************************************************************/
+
+entry,
+spinbutton,
+.entry {
+    background: linear-gradient(to top, shade(@base_bg, 0.9), shade(@base_bg, 0.8));
+    border: 1px solid @border;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+selection {
+    background-color: alpha(@accent, 0.2);
+    color: #ffffff;
+}
+
+
+
+/* Tooltips *******************************************************************/
+
+tooltip {
+    background-color: alpha(#252627, 0.9);
+    border-radius: 5px;
+    border: 1px solid @border;
+    box-shadow: inset 0 0 0 1px alpha(#fff, 0.04);
+    color: alpha(#fff, 0.9);
+    padding: 3px 6px;
+    margin: 6px;
+    text-shadow: 0 1px 2px alpha(#000, 0.6);
 }
 
 
@@ -179,6 +254,18 @@ scrollbar.vertical slider {
 
 
 
+/* Menu ***********************************************************************/
+
+menu {
+    background: @base_bg;
+    color: @base_fg;
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
+    border-top-style: none;
+}
+
+
+
 /* Borders (& separators) *****************************************************/
 
 menu separator,
@@ -186,9 +273,14 @@ separator.horizontal {
     border-top: 1px solid @border;
 }
 
-separator.vertical,
+separator.vertical {
+    border-right: 1px solid @border;
+}
+
 paned.horizontal > separator {
     border-right: 1px solid @border;
+    margin-left: -4px;
+    margin-right: -1px;
 }
 
 frame:not(.flat) {
@@ -224,7 +316,7 @@ notebook tab:checked {
     padding: 8px 12px 8px 12px;
     border: none;
 }
-
+/*
 notebook tab button.flat {
     background: none;
     box-shadow: none;
@@ -232,7 +324,7 @@ notebook tab button.flat {
     transition: color .2s;
 }
 
-notebook tab:not(:checked):not(:hover) button {
+notebook tab:not(:checked):not(:hover) button.flat {
     color: transparent;
     transition: color .2s;
 }
@@ -248,4 +340,50 @@ notebook tab button:hover:not(:active),
 notebook header button:hover:not(:active) {
     background: unset;
     box-shadow: unset;
+}*/
+
+notebook tab button:hover:not(:active),
+notebook header button:hover:not(:active) {
+    background: unset;
+    box-shadow: unset;
 }
+
+notebook header button.flat {
+    margin: 4px;
+}
+
+notebook tab:not(:checked):not(:hover) button.flat {
+    color: transparent;
+    transition: color .2s;
+}
+
+
+
+/* Granite widgets ************************************************************/
+
+.checkerboard,
+.checkerboard-layout {
+    background-color: shade (@bg_color, 0.95);
+    background-image:
+        linear-gradient(45deg, alpha(#000, 0.1) 25%, transparent 25%, transparent 75%, alpha(#000, 0.1) 75%, alpha(#000, 0.1)),
+        linear-gradient(45deg, alpha(#000, 0.1) 25%, transparent 25%, transparent 75%, alpha(#000, 0.1) 75%, alpha(#000, 0.1));
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+}
+
+
+
+
+
+
+iconview {
+    background: @base_bg;
+}
+
+
+#MozillaGtkWidget .view {
+    background: @base_bg;
+    border: 1px solid @border;
+}
+
+
