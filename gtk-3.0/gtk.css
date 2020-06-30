@@ -6,8 +6,13 @@
 @define-color border rgba(0, 0, 0, .8);
 
 * {
-  -GtkScrollbar-has-backward-stepper: false;
-  -GtkScrollbar-has-forward-stepper: false;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    width: unset;
+    height: unset;
+    -GtkScrollbar-has-backward-stepper: false;
+    -GtkScrollbar-has-forward-stepper: false;
 }
 
 *:selected {
@@ -141,7 +146,7 @@ button.flat:active,
 }
 
 button.suggested-action {
-    background: linear-gradient(to top, shade(@accent, 1), shade(@accent, 1.2));
+    background: linear-gradient(to top, @accent, shade(@accent, 1.2));
     box-shadow: inset 0 1px 0 1px rgba(255, 255, 255, .18),
                 inset 0 0 0 2px rgba(255, 255, 255, .12),
                 inset 0 0 0 1px @border;
@@ -176,6 +181,89 @@ button.flat:hover:not(:active) {
 
 
 
+/* Switches, checks & radios **************************************************/
+
+check,
+radio,
+switch {
+    transition: all .1s ease-in;
+    border: 1px solid @border;
+    background: rgba(0, 0, 0, .1);
+}
+
+check,
+radio {
+    height: 12px;
+    width: 12px;
+    box-shadow:
+        inset 0 1px 0 0px rgba(0, 0, 0, .03),
+        inset 0 0 0 1px rgba(0, 0, 0, .02);
+    -gtk-icon-source: none;
+}
+
+switch {
+    border-radius: 20px;
+    height: 16px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    color: transparent;
+    font-size: 0;
+}
+
+switch slider {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .1));
+    border: 1px solid @border;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    margin: 6px;
+    min-height: 12px;
+    min-width: 12px;
+    transition: all .1s ease-in;
+}
+
+check { border-radius: 5px; }
+radio { border-radius: 50%; }
+
+check:hover,
+radio:hover,
+switch:hover {
+    border-color: shade(@accent, 1.);
+}
+
+check:checked,
+radio:checked,
+switch:checked {
+    background: linear-gradient(to top, @accent, shade(@accent, 1.2));
+    box-shadow:
+        inset 0 1px rgba(255, 255, 255, .18),
+        inset 0 0 0 1px rgba(255, 255, 255, .12);
+}
+
+switch slider:checked {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .7), rgba(255, 255, 255, .8));
+    border: 1px solid @border;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+check:disabled,
+radio:disabled,
+switch:disabled,
+switch slider:disabled {
+    border: 1px solid rgba(0, 0, 0, .3);
+    background: rgba(0, 0, 0, .02);
+    box-shadow: none;
+}
+
+check:disabled:checked,
+radio:disabled:checked,
+switch:disabled:checked {
+    background: linear-gradient(to top, alpha(@accent, .4), alpha(@accent, .5));
+    box-shadow:
+        inset 0 1px rgba(255, 255, 255, .08),
+        inset 0 0 0 1px rgba(255, 255, 255, .02);
+}
+
+
+
 /* Combobox (aka spinner) *****************************************************/
 
 combobox arrow {
@@ -193,7 +281,7 @@ spinbutton,
 .entry {
     background: linear-gradient(to top, shade(@base_bg, 0.9), shade(@base_bg, 0.8));
     border: 1px solid @border;
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 4px;
 }
 
@@ -355,6 +443,24 @@ notebook header button.flat {
 notebook tab:not(:checked):not(:hover) button.flat {
     color: transparent;
     transition: color .2s;
+}
+
+
+
+/* Sidebar ********************************************************************/
+
+.sidebar,
+.tweak-categories {
+  background: rgba(0, 0, 0, .1);
+  border-radius: 0 0 0 12px;
+}
+
+.sidebar-icon {
+    padding: 0 0 0 12px;
+}
+
+.sidebar-label {
+    padding: 8px;
 }
 
 
