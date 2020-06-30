@@ -193,8 +193,8 @@ switch {
 
 check,
 radio {
-    min-height: 12px;
-    min-width: 12px;
+    height: 12px;
+    width: 12px;
     box-shadow:
         inset 0 1px 0 0px rgba(0, 0, 0, .03),
         inset 0 0 0 1px rgba(0, 0, 0, .02);
@@ -220,7 +220,7 @@ switch slider {
     transition: all .1s ease-in;
 }
 
-check { border-radius: 3px; }
+check { border-radius: 5px; }
 radio { border-radius: 50%; }
 
 check:hover,
@@ -262,63 +262,6 @@ switch:disabled:checked {
         inset 0 0 0 1px rgba(255, 255, 255, .02);
 }
 
-
-
-/* Seekbar ********************************************************************/
-
-scale trough {
-    border-radius: 12px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .1));
-    border: 1px solid @border;
-    margin: 8px 0;
-    min-height: 6px;
-    min-width: 6px;
-}
-scale.marks-after trough {
-    margin: 8px 0 2px 0;
-}
-
-scale slider {
-    min-height: 14px;
-    min-width: 14px;
-}
-
-scale.marks-after slider,
-scale highlight {
-    background: linear-gradient(to top, @accent, shade(@accent, 1.2));
-    border-radius: 12px;
-    box-shadow:
-        inset 0 1px rgba(255, 255, 255, .18),
-        inset 0 0 0 1px rgba(255, 255, 255, .12);
-}
-
-scale highlight:disabled {
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: none;
-}
-
-scale mark indicator {
-    color: @secondary_accent;
-}
-
-scale.horizontal mark indicator { min-height: 4px; min-width: 1px; }
-scale.vertical mark indicator { min-height: 1px; min-width: 4px; }
-
-
-
-/* Colorpicker ****************************************************************/
-
-scale.color trough {
-    border-radius: 0;
-}
-
-scale.color slider {
-    background: transparent;
-    box-shadow:
-        inset 0 0 0 2px rgba(255, 255, 255, .2),
-        inset 0 0 0 1px @border;
-    border-radius: 12px;
-}
 
 
 /* Combobox (aka spinner) *****************************************************/
