@@ -1,8 +1,8 @@
 
 @define-color accent #1155ff; /* #8833ff also looks really well */
 @define-color secondary_accent #17C25B;
-@define-color base_bg #252627; /* #20262d also looks really well */
-@define-color border rgba(0, 0, 0, .8);
+@define-color base_bg #323232; /* #20262d also looks really well */
+@define-color border rgba(0, 0, 0, .5);
 
 * {
     padding: 0;
@@ -28,7 +28,6 @@
     color: rgba(255, 255, 255, .9);
     border-radius: 0 0 12px 12px;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
-    border-top-style: none;
 }
 
 .tiled-left.tiled-top:not(.maximized).background { border-top-right-radius: 0; }
@@ -36,13 +35,18 @@
 .tiled-left.tiled-bottom:not(.maximized).background { border-bottom-right-radius: 0; }
 .tiled-right.tiled-bottom:not(.maximized).background { border-bottom-left-radius: 0; }
 
+.maximized.background {
+    border-radius: 0;
+    border-bottom: 1px solid @border;
+}
+
 
 
 /* Window shadow **************************************************************/
 
 decoration {
-    background: @border;
-    border-radius: 12px;
+    background: #000;
+    border-radius: 12px 12px 12px 12px;
     box-shadow: 0 0 0 1px @border,
                 0 1px 3px rgba(0, 0, 0, .1),
                 0 5px 14px rgba(0, 0, 0, .25),
@@ -59,8 +63,10 @@ decoration:backdrop {
     transition: box-shadow .4s;
 }
 
-.tiled decoration { border-radius: 0; }
-
+.tiled-left.tiled-top decoration { border-top-right-radius: 0; border-top-left-radius: 0; }
+.tiled-right.tiled-top decoration { border-top-right-radius: 0; border-top-left-radius: 0; }
+.tiled-left.tiled-bottom decoration { border-bottom-right-radius: 0; }
+.tiled-right.tiled-bottom decoration { border-bottom-left-radius: 0; }
 
 
 /* Window titlebar ************************************************************/
@@ -68,7 +74,7 @@ decoration:backdrop {
 .titlebar {
     min-height: 32px;
     padding: 6px;
-    background: linear-gradient(to top, shade(@base_bg, 0.9), @base_bg);
+    background: linear-gradient(to top, shade(@base_bg, 0.8), shade(@base_bg, 0.9));
     border-radius: 12px 12px 0 0;
     box-shadow: inset 0 1px rgba(255, 255, 255, .1),
                 inset 0 0 0 1px rgba(255, 255, 255, .04);
@@ -267,7 +273,6 @@ check,
 radio,
 switch {
     transition: all .1s ease-in;
-    border: 1px solid @border;
     background: rgba(0, 0, 0, .1);
 }
 
@@ -277,23 +282,27 @@ radio {
     min-width: 12px;
     box-shadow:
         inset 0 1px 0 0px rgba(0, 0, 0, .03),
-        inset 0 0 0 1px rgba(0, 0, 0, .02);
+        inset 0 0 0 1px rgba(0, 0, 0, .02),
+        0 0 0 1px @border;
     -gtk-icon-source: none;
 }
 
 switch {
     border-radius: 20px;
     height: 16px;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
     color: transparent;
     font-size: 0;
+    background: linear-gradient(to top, shade(@base_bg, 1.2), shade(@base_bg, 1.5));
+    box-shadow:
+        inset 0 1px rgba(255, 255, 255, .1),
+        inset 0 0 0 1px rgba(255, 255, 255, .04),
+        0 0 0 1px @border;
 }
 
 switch slider {
     background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .1));
-    border: 1px solid @border;
     border-radius: 50%;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 0 0 1px @border;
     margin: 6px;
     min-height: 12px;
     min-width: 12px;
@@ -303,34 +312,31 @@ switch slider {
 check { border-radius: 3px; }
 radio { border-radius: 50%; }
 
-check:hover,
-radio:hover,
-switch:hover {
-    border-color: shade(@accent, 1.);
-}
-
 check:checked,
 radio:checked,
 switch:checked {
     background: linear-gradient(to top, @accent, shade(@accent, 1.2));
     box-shadow:
         inset 0 1px rgba(255, 255, 255, .18),
-        inset 0 0 0 1px rgba(255, 255, 255, .12);
+        inset 0 0 0 1px rgba(255, 255, 255, .12),
+        0 0 0 1px @border;
 }
 
 switch slider:checked {
     background: linear-gradient(to bottom, rgba(255, 255, 255, .7), rgba(255, 255, 255, .8));
-    border: 1px solid @border;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
 }
 
 check:disabled,
 radio:disabled,
-switch:disabled,
-switch slider:disabled {
-    border: 1px solid rgba(0, 0, 0, .3);
+switch:disabled {
     background: rgba(0, 0, 0, .02);
-    box-shadow: none;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .2);
+}
+
+switch slider:disabled {
+    background: rgba(0, 0, 0, .02);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .2);
 }
 
 check:disabled:checked,
@@ -339,7 +345,8 @@ switch:disabled:checked {
     background: linear-gradient(to top, alpha(@accent, .4), alpha(@accent, .5));
     box-shadow:
         inset 0 1px rgba(255, 255, 255, .08),
-        inset 0 0 0 1px rgba(255, 255, 255, .02);
+        inset 0 0 0 1px rgba(255, 255, 255, .02),
+        0 0 0 1px rgba(0, 0, 0, .2);
 }
 
 
@@ -406,7 +413,29 @@ scale.color slider {
 arrow {
     min-width: 18px;
     min-height: 18px;
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+}
+
+arrow:dir(rtl) {
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl");
+}
+
+arrow.top {
+    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
+}
+
+arrow.bottom {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+
+arrow.left,
+notebook header > tabs > arrow.down {
+    -gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
+}
+
+arrow.right,
+notebook header > tabs > arrow.up {
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
 }
 
 
@@ -556,24 +585,37 @@ frame:not(.flat) {
 /* Notebook & tabs ************************************************************/
 
 notebook header {
-    background: shade(@base_bg, .85);
+    background: linear-gradient(to top, shade(@base_bg, .7) 10%, shade(@base_bg, .6) 95%, shade(@base_bg, .5) 100%);
     border-bottom: 1px solid @border;
+}
+
+.inline-toolbar notebook header {
+    background: linear-gradient(to top, shade(@tab_base_color, .8) 10%, shade(@tab_base_color, .7) 95%, shade(@tab_base_color, .6) 100%);
 }
 
 notebook tab {
     border-left: 1px solid @border;
     border-right: 1px solid @border;
-    margin-right: -1px;
-    border-color: @border;
+    margin-left: -1px;
     color: rgba(255, 255, 255, .5);
 }
 
 notebook tab:hover {
-    background: shade(@base_bg, .9);
+    background: rgba(255, 255, 255, .02);
 }
 
 notebook tab:checked {
     background: @base_bg;
+    color: rgba(255, 255, 255, .8);
+    box-shadow: inset 0 1px rgba(255, 255, 255, .06),
+                0 1px alpha(@base_bg, .5);
+}
+
+.inline-toolbar notebook tab:checked {
+    background: @tab_base_color;
+    color: rgba(255, 255, 255, .8);
+    box-shadow: inset 0 1px rgba(255, 255, 255, .06),
+                0 1px alpha(@tab_base_color, .5);
 }
 
 .frame notebook tab {
@@ -611,6 +653,16 @@ notebook tab:not(:checked):not(:hover) button.flat {
 
 .sidebar-label {
     padding: 8px;
+}
+
+.sidebar,
+.sidebar.view,
+.sidebar list,
+.source-list,
+.source-list.view {
+    -gtk-icon-style: regular;
+    -GtkTreeView-horizontal-separator: 1px;
+    -GtkTreeView-vertical-separator: 6px;
 }
 
 
