@@ -1,0 +1,363 @@
+
+
+/* Statusbar ******************************************************************/
+
+#panel {
+    background: #000000;
+    font-size: 14px;
+    height: 32px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+}
+
+/* adds rounded corners below the status bar */
+#panel .panel-corner {
+    -panel-corner-radius: 12px;
+    -panel-corner-background-color: #000000;
+}
+
+#panel .panel-button {
+    color: #E1E2E3;
+    border-radius: 20px;
+}
+
+#panel .panel-button:hover,
+#panel .panel-button:active,
+#panel .panel-button:overview,
+#panel .panel-button:focus,
+#panel .panel-button:checked {
+    background: rgba( 255, 255, 255, 0.1);
+}
+
+
+
+/* OSD (volume adjustment window) *********************************************/
+
+.osd-window {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
+    background-color: rgba(48, 48, 48, 0.8);
+    border-radius: 20px;
+    padding: 15px 15px 15px 15px;
+}
+
+.osd-window StIcon {
+    icon-size: 6.54em;
+}
+
+.osd-window .level {
+    height: 8px;
+    -barlevel-height: 8px;
+    -barlevel-background-color: rgba(0, 0, 0, 0.3);
+    -barlevel-active-background-color: #17C25B;
+    -barlevel-active-border-color: #17C25B;
+    -barlevel-overdrive-color: #ff5555;
+    -barlevel-overdrive-separator-width: 1px;
+}
+
+
+
+/* Slider *********************************************************************/
+
+.slider {
+    height: 15px;
+    -barlevel-height: 16px;
+    -barlevel-background-color: rgba(0, 0, 0, .2);
+    -barlevel-border-width: 0;
+    -barlevel-active-background-color: #17C25B;
+    -barlevel-active-border-color: #17C25B;
+    -barlevel-overdrive-color: #ff5555;
+    -barlevel-overdrive-separator-width: 1px;
+    -slider-handle-radius: 5px;
+    -slider-handle-border-width: 1px;
+    -slider-handle-border-color: rgba(0, 0, 0, .4);
+}
+
+
+
+/* Popovers/menus *************************************************************/
+
+.popup-menu-boxpointer,
+.candidate-popup-boxpointer {
+    -arrow-border-radius: 20px;
+    -arrow-background-color: #252627;
+    -arrow-border-width: 1px;
+    -arrow-border-color: rgba(0, 0, 0, .8);
+    -arrow-base: 12px;
+    -arrow-rise: 5px;
+    -boxpointer-gap: 4px;
+    color: #e1e2e3;
+}
+
+.popup-menu-content {
+    padding: 16px 0;
+}
+
+.popup-menu-item {
+    spacing: 0;
+    padding: 6px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    color: #e1e2e3;
+}
+
+.popup-menu-item:ltr { padding-right: 16px; padding-left: 0; }
+.popup-menu-item:rtl { padding-right: 0; padding-left: 16px; }
+
+.popup-menu-item.selected {
+    border-color: rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #F7F7F7;
+}
+
+.popup-menu-item:active {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
+    color: #F7F7F7;
+}
+
+.popup-menu-item:checked {
+    border-top: 1px solid rgba(0, 0, 0, 0.8);
+    border-bottom: none;
+    background-color: #3e3e3e;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
+}
+
+.popup-menu-item:insensitive {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.popup-sub-menu {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(0, 0, 0, .8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    box-shadow: none;
+}
+
+.background-menu {
+    -arrow-border-radius: 12px;
+    -boxpointer-gap: 8px;
+}
+
+.popup-separator-menu-item {
+    padding: 0;
+}
+
+.popup-separator-menu-item .popup-separator-menu-item-separator {
+    height: 1px;
+    margin: 6px 0;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.popup-sub-menu .popup-separator-menu-item .popup-separator-menu-item-separator {
+    margin: 0 32px 0 0;
+}
+
+
+
+/* Time/Date menu *************************************************************/
+
+.clock-display-box .clock {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.datemenu-calendar-column {
+    border: 0 solid rgba(0, 0, 0, .8);
+    padding: 0 12px;
+    margin: 0;
+    spacing: 0;
+}
+
+.datemenu-calendar-column:ltr {
+    border-left-width: 1px;
+}
+
+.datemenu-calendar-column:rtl {
+    border-right-width: 1px;
+}
+
+.events-section-title {
+    color: #rgba(255, 255, 255, .8);
+    font-weight: bold;
+}
+
+
+
+/* Calendar *******************************************************************/
+
+.calendar {
+    border: 1px solid rgba(0, 0, 0, .8);
+    border-radius: 18px;
+    margin: 8px;
+    color: #e1e2e3;
+    background-color: #2d2e2f;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
+    padding: 8px;
+}
+
+.calendar .calendar-month-label {
+    color: #e1e2e3;
+    font-weight: bold;
+    padding: 8px 0;
+}
+
+.calendar .calendar-change-month-back StIcon,
+.calendar .calendar-change-month-forward StIcon {
+    icon-size: 1.1em;
+}
+
+.calendar .pager-button {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, .8);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
+    height: 32px;
+    width: 32px;
+    border-radius: 10px;
+}
+
+.calendar .pager-button:hover,
+.calendar .pager-button:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
+    color: #ffffff;
+}
+
+.calendar .pager-button:active {
+    color: #C0C1C2;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, .4);
+}
+
+.calendar .calendar-day-base {
+    font-size: 8pt;
+    text-align: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 2px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    font-feature-settings: "tnum";
+    color: #ffffff;
+}
+
+.calendar .calendar-day-base:hover,
+.calendar .calendar-day-base:focus {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+
+.calendar .calendar-day-base:active,
+.calendar .calendar-day-base:selected {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, .8);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
+}
+
+.calendar .calendar-day-base.calendar-day-heading {
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 8px;
+}
+
+.calendar .calendar-today {
+    font-weight: bold;
+    border: 1px solid rgba(0, 0, 0, .8);
+    background-color: rgba(23, 194, 91, .1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
+    text-shadow: 0 1px 0 1px rgba(0, 0, 0, .8);
+    color: #17C25B;
+}
+
+.calendar .calendar-today:hover,
+.calendar .calendar-today:focus {
+    background-color: rgba(23, 194, 91, .3);
+}
+
+.calendar .calendar-today:active,
+.calendar .calendar-today:selected,
+.calendar .calendar-today:active:hover,
+.calendar .calendar-today:active:focus,
+.calendar .calendar-today:selected:hover,
+.calendar .calendar-today:selected:focus {
+    background-color: #17C25B;
+    color: #ffffff;
+}
+
+.calendar .calendar-other-month-day {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+
+
+/* Switches *******************************************************************/
+
+.toggle-switch {
+    height: 22px;
+    width: 46px;
+    background-size: contain;
+    background-image: url("off.png");
+}
+
+.toggle-switch:checked {
+    background-image: url("on.png");
+}
+
+
+
+/* App grid *******************************************************************/
+
+.icon-grid {
+    -shell-grid-horizontal-item-size: 144px;
+    -shell-grid-vertical-item-size: 144px;
+}
+
+.app-well-app .overview-icon.overview-icon-with-label,
+.grid-search-result .overview-icon.overview-icon-with-label {
+    padding: 10px 8px 5px 8px;
+}
+
+.app-well-app .overview-icon.overview-icon-with-label > StBoxLayout,
+.grid-search-result .overview-icon.overview-icon-with-label > StBoxLayout {
+    spacing: 6px;
+}
+
+
+
+/* Dash ***********************************************************************/
+
+.show-apps:hover .overview-icon,
+.show-apps:selected .overview-icon {
+    background-color: rgba(255, 255, 255, 0.1);
+    filter: brightness(20%);
+}
+
+
+/* Misc ***********************************************************************/
+
+.switcher-list {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
+    background-color: rgba(48, 48, 48, 0.8);
+}
+
+.switcher-list .item-box {
+    padding: 8px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+}
+
+.switcher-list .item-box:outlined {
+    border: 1px solid #1b1b1b;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.switcher-list .item-box:selected {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #eeeeec;
+}
+
+.switcher-list .switcher-list-item-container {
+    spacing: 10px;
+}
