@@ -1,0 +1,7 @@
+
+@use 'def';
+
+#MozillaGtkWidget .view {
+    background: def.$base_bg;
+    border: 1px solid def.$border;
+}

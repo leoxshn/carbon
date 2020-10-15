@@ -1,0 +1,58 @@
+
+@use 'def';
+
+/* middle */
+.linked entry,
+.linked button,
+.linked > combobox button.combo,
+.linked spinbutton,
+.titlebar .stack-switcher .button.image-button {
+    border-left-width: 0;
+    border-radius: 0;
+}
+
+/* left */
+.linked entry:first-child,
+.linked button:first-child,
+.linked > combobox:first-child button.combo,
+.linked spinbutton:first-child,
+.titlebar .stack-switcher .button.image-button:first-child,
+.linked:not(box):dir(rtl) entry:last-child,
+.linked:not(box):dir(rtl) button:last-child,
+.linked:not(box):dir(rtl) > combobox:last-child button.combo,
+.linked:not(box):dir(rtl) spinbutton:last-child,
+.titlebar:dir(rtl) .stack-switcher .button.image-button:last-child {
+    border-width: 1px;
+    border-radius: def.$button_radius 0 0 def.$button_radius;
+}
+
+/* right */
+.linked entry:last-child,
+.linked button:last-child,
+.linked > combobox:last-child button.combo,
+.linked spinbutton:last-child,
+.titlebar .stack-switcher .button.image-button:last-child,
+.linked:not(box):dir(rtl) entry:first-child,
+.linked:not(box):dir(rtl) button:first-child,
+.linked:not(box):dir(rtl) > combobox:first-child button.combo,
+.linked:not(box):dir(rtl) spinbutton:first-child,
+.titlebar:dir(rtl) .stack-switcher .button.image-button:first-child {
+    border-left-width: 0;
+    border-radius: 0 def.$button_radius def.$button_radius 0;
+}
+
+/* single */
+.linked entry:only-child,
+.linked button:only-child,
+.linked > combobox:only-child button.combo,
+.linked spinbutton:only-child,
+.titlebar .stack-switcher .button.image-button:only-child,
+.linked:not(box):dir(rtl) entry:only-child,
+.linked:not(box):dir(rtl) button:only-child,
+.linked:not(box):dir(rtl) > combobox:only-child button.combo,
+.linked:not(box):dir(rtl) spinbutton:only-child,
+.titlebar .stack-switcher .button.image-button:only-child {
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-radius: def.$button_radius;
+}

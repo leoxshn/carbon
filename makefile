@@ -15,3 +15,5 @@ install: uninstall
 
 uninstall:
 	sudo rm -rf /usr/share/themes/qarbon
+
+buildNInstall: gtk install
