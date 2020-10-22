@@ -1,0 +1,40 @@
+
+@use 'def';
+
+%entry {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, .1), rgba(0, 0, 0, .3));
+    background-clip: padding-box;
+    border: 1px solid def.$border;
+    border-radius: 5px;
+    box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, .2),
+                0 0 0 1px def.$highlight_border;
+
+    &:disabled {
+        background: rgba(0, 0, 0, 0.03);
+        color: rgba(255, 255, 255, .1);
+    }
+
+    &.flat {
+        background: transparent;
+        border-color: transparent;
+        border-radius: 0;
+
+        &:focus {
+            border-bottom-color: def.$accent;
+        }
+    }
+}
+
+entry {
+    @extend %entry;
+
+    padding: 8px;
+
+    image.left {
+        margin-right: 8px;
+    }
+
+    image.right {
+        margin-left: 8px;
+    }
+}

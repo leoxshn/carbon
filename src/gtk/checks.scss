@@ -54,6 +54,8 @@ switch {
         inset 0 0 0 1px rgba(255, 255, 255, .04),
         0 0 0 1px def.$border;
 
+    * { color: transparent; }
+
     slider {
         background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .1));
         border-radius: 50%;

@@ -1,0 +1,29 @@
+
+.sidebar,
+.sidebar.view,
+.sidebar list,
+.source-list,
+.source-list .view {
+    background-color: #ff0000;
+    border-radius: 0;
+}
+
+.sidebar {
+    list {
+        padding-top: rem(6px);
+
+        row {
+            border-radius: 0 !important;
+            padding: rem(6px) rem(12px);
+        }
+    }
+}
+
+treeview.sidebar {
+    -GtkTreeView-horizontal-separator: 1px;
+    -GtkTreeView-vertical-separator: 6px;
+
+    .view {
+        border-radius: 0;
+    }
+}

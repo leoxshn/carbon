@@ -1,0 +1,31 @@
+
+@use 'def';
+
+separator {
+    &.horizontal {
+        border-top: 1px solid def.$border;
+        border-bottom: 1px solid def.$highlight_border;
+        margin-bottom: -1px;
+    }
+
+    &.vertical {
+        border-left: 1px solid def.$border;
+        margin-right: -1px;
+    }
+
+    actionbar > &,
+    toolbar > &,
+    .titlebar > & {
+        border: none;
+        margin: 0 18px;
+    }
+
+    stacksidebar &.horizontal {
+        border: none;
+    }
+
+    &.titlebutton {
+        border: none;
+        margin: 0 3px;
+    }
+}
