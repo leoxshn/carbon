@@ -3,25 +3,20 @@
 .sidebar.view,
 .sidebar list,
 .source-list,
-.source-list .view {
-    background-color: #ff0000;
-    border-radius: 0;
+.source-list {
+    background-color: rgba(0, 0, 0, .07);
 }
 
 .sidebar {
     list {
-        padding-top: rem(6px);
-
         row {
             border-radius: 0 !important;
-            padding: rem(6px) rem(12px);
+            padding: 6px 12px;
         }
     }
 }
 
 treeview.sidebar {
-    -GtkTreeView-horizontal-separator: 1px;
-    -GtkTreeView-vertical-separator: 6px;
 
     .view {
         border-radius: 0;

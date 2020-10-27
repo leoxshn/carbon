@@ -1,0 +1,35 @@
+
+
+scrollbar {
+
+    &.horizontal slider {
+        min-width: 40px;
+    }
+
+    &.vertical slider {
+        min-height: 40px;
+    }
+
+    slider {
+        min-width: 6px;
+        min-height: 6px;
+        border-radius: 8px;
+        background-color: rgba(200, 200, 200, .2);
+        margin: 4px;
+        transition: background-color .1s;
+
+        &:hover {
+            background-color: rgba(220, 220, 220, .4);
+            transition: background-color .2s;
+        }
+
+        &:active {
+            background-color: rgba(220, 220, 220, .5);
+            transition: background-color .1s;
+        }
+
+        &:disabled {
+            background-color: transparent;
+        }
+    }
+}
