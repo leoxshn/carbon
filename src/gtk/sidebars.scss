@@ -6,6 +6,7 @@
 .source-list .view {
     background-color: #ff0000;
     border-radius: 0;
+    -gtk-icon-style: regular;
 }
 
 .sidebar {
@@ -26,4 +27,12 @@ treeview.sidebar {
     .view {
         border-radius: 0;
     }
+}
+
+.sidebar-icon {
+    padding: 0 0 0 12px;
+}
+
+.sidebar-label {
+    padding: 8px;
 }

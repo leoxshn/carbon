@@ -7,6 +7,12 @@ list {
     border: 1px solid def.$border;
     box-shadow: inset 0 0 0 1px def.$highlight_border;
 
+    frame:not(.flat) & {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+    }
+
     row {
 
 	&:first-child {
