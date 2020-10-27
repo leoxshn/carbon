@@ -3,8 +3,15 @@
 .sidebar.view,
 .sidebar list,
 .source-list,
+<<<<<<< HEAD
 .source-list {
     background-color: rgba(0, 0, 0, .07);
+=======
+.source-list .view {
+    background-color: #ff0000;
+    border-radius: 0;
+    -gtk-icon-style: regular;
+>>>>>>> 2a05f56b7f50c8f4acfd378f2e81781ce90a7c8c
 }
 
 .sidebar {
@@ -21,4 +28,12 @@ treeview.sidebar {
     .view {
         border-radius: 0;
     }
+}
+
+.sidebar-icon {
+    padding: 0 0 0 12px;
+}
+
+.sidebar-label {
+    padding: 8px;
 }
