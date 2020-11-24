@@ -1,0 +1,34 @@
+[PlankTheme]
+TopRoundness=8
+BottomRoundness=0
+LineWidth=1
+OuterStrokeColor=0;;0;;0;;100
+FillStartColor=50;;50;;50;;192
+FillEndColor=10;;10;;10;;128
+InnerStrokeColor=180;;180;;180;;128
+
+[PlankDockTheme]
+HorizPadding=0
+TopPadding=1.5
+BottomPadding=1.5
+ItemPadding=3
+IndicatorSize=5
+IconShadowSize=3
+UrgentBounceHeight=0.8
+LaunchBounceHeight=0.25
+FadeOpacity=1
+#time (in ms) for click animations.
+ClickTime=300
+UrgentBounceTime=600
+LaunchBounceTime=600
+#time (in ms) for active window indicator animations.
+ActiveTime=100
+#time (in ms) to slide icons into/out of the dock.
+SlideTime=300
+HideTime=180
+GlowSize=0
+GlowTime=0
+GlowPulseTime=0
+BadgeColor=237;;83;;83;;255
+ItemMoveTime=64
+CascadeHide=false

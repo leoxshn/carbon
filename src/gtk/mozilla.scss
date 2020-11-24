@@ -1,7 +1,9 @@
 
 @use 'def';
+@use 'entries';
 
 #MozillaGtkWidget .view {
+    @extend %entry;
     background: def.$base_bg;
     border: 1px solid def.$border;
 }

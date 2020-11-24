@@ -1,11 +1,14 @@
 SASS_FLAGS = --no-source-map -s compressed
 
-all: gtk
+all: gtk plank
 
 gtk: clean
 	mkdir -p out/qarbon/gtk-3.0
 	sass $(SASS_FLAGS) src/gtk/main.scss out/qarbon/gtk-3.0/gtk.css
 	cp src/index.theme out/qarbon/
+
+plank:
+	cp -r src/plank out/qarbon/
 
 clean:
 	rm -rf out/
@@ -16,4 +19,4 @@ install: uninstall
 uninstall:
 	sudo rm -rf /usr/share/themes/qarbon
 
-buildNInstall: gtk install
+buildNInstall: all install

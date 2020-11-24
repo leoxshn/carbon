@@ -10,8 +10,14 @@
                 0 0 0 1px def.$highlight_border;
 
     &:disabled {
+        border-color: rgba(0, 0, 0, .2);
         background: rgba(0, 0, 0, 0.03);
-        color: rgba(255, 255, 255, .1);
+        box-shadow: inset 0 0 2px 0 rgba(255, 255, 255, .01),
+            0 0 0 1px def.$highlight_border;
+        
+        * {
+            color: rgba(255, 255, 255, .3);
+        }
     }
 
     &.flat {
@@ -22,6 +28,11 @@
         &:focus {
             border-bottom-color: def.$accent;
         }
+    }
+
+    selection {
+        background-color: rgba(def.$accent, .4);
+        color: #ffffff;
     }
 }
 
@@ -38,3 +49,4 @@ entry {
         margin-left: 8px;
     }
 }
+

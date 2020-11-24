@@ -11,6 +11,7 @@
 @use 'scrollbars';
 @use 'separators';
 @use 'sidebars';
+@use 'window';
 
 @use 'mozilla';
 @use 'phosh';
@@ -30,19 +31,18 @@
     background: def.$base_bg;
 }
 
-.titlebar {
-    background: def.$base_bg;
-    padding: 4px;
-    border-bottom: 1px solid def.$border;
-}
-
-tooltip {
-    background-color: rgba(#252627, 0.9);
+tooltip, .tooltip {
+    background: none;
+    background-color: transparent;
+    color: rgba(#fff, 0.9);
+    text-shadow: 0 1px 5px 2px rgba(#000000, 0.6);
+/*
+    background-color: rgba(#252627, 0.5);
     border-radius: 5px;
     border: 1px solid def.$border;
     box-shadow: inset 0 0 0 1px rgba(#fff, 0.04);
     color: rgba(#fff, 0.9);
     padding: 3px 6px;
     margin: 6px;
-    text-shadow: 0 1px 2px rgba(#000, 0.6);
+    text-shadow: 0 1px 2px rgba(#000, 0.6);*/
 }
